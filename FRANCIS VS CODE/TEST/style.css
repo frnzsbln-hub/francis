@@ -1,0 +1,90 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #111;
+  color: #fff;
+}
+
+header {
+  background: #e50914;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.movie-section {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.movie-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.poster {
+  width: 200px;
+  border-radius: 10px;
+}
+
+.movie-details h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #e50914;
+}
+
+.booking-widget {
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.booking-widget h3 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+}
+
+.book-btn {
+  background: #e50914;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  font-size: 1rem;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.book-btn:hover {
+  background: #f40612;
+}
+
+.hidden {
+  display: none;
+}
+
+#confirmationMessage {
+  margin-top: 15px;
+  background: #28a745;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}

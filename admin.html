@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Movie Bookings</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🎟️ Admin Panel</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>All Bookings</h2>
+      <table id="bookingTable">
+        <thead>
+          <tr>
+            <th>Movie</th>
+            <th>Name</th>
+            <th>Seats</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button onclick="clearBookings()">Clear All Bookings</button>
+      <br><br>
+      <a href="index.html"><button>Back to Booking Page</button></a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Movie Booking Project</p>
+  </footer>
+
+  <script>
+    // Load all bookings from localStorage
+    function loadBookings() {
+      let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+      const tableBody = document.querySelector("#bookingTable tbody");
+      tableBody.innerHTML = "";
+
+      bookings.forEach((b, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${b.movie}</td>
+          <td>${b.name}</td>
+          <td>${b.seats}</td>
+          <td>${b.date}</td>
+          <td><button onclick="deleteBooking(${index})">Delete</button></td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    // Delete a single booking
+    function deleteBooking(index) {
+      let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+      bookings.splice(index, 1);
+      localStorage.setItem("bookings", JSON.stringify(bookings));
+      loadBookings();
+    }
+
+    // Clear all bookings
+    function clearBookings() {
+      if (confirm("Are you sure you want to clear all bookings?")) {
+        localStorage.removeItem("bookings");
+        loadBookings();
+      }
+    }
+
+    // Load bookings when the page is opened
+    loadBookings();
+  </script>
+</body>
+</html>
+<img src="demon-slayer.png" alt="Demon Slayer Movie Poster" width="300">
